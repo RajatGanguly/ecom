@@ -1,0 +1,351 @@
+/***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: https://j.mp/metronictheme
+Licensed under MIT
+***/
+
+body {
+    background: #F1F3FA;
+  }
+
+  a{
+      text-decoration: none;
+      color: #fff;
+  }
+  
+  /* Profile container */
+  .profile {
+    margin: 20px 0;
+  }
+  
+  /* Profile sidebar */
+  .profile-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+  }
+  
+  .profile-userpic img {
+    float: none;
+    /* margin: 0 auto; */
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+  }
+  
+  .profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .profile-usertitle-name {
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  
+  .profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .profile-userbuttons .btn {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 15px;
+    margin-right: 5px;
+  }
+  
+  .profile-userbuttons .btn:last-child {
+    margin-right: 0px;
+  }
+      
+  .profile-usermenu {
+    margin-top: 30px;
+  }
+  
+  .profile-usermenu ul li {
+    border-bottom: 1px solid #f0f4f7;
+  }
+  
+  .profile-usermenu ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .profile-usermenu ul li a {
+    color: #93a3b5;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .profile-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  
+  .profile-usermenu ul li a:hover {
+    background-color: #fafcfd;
+    color: #5b9bd1;
+  }
+  
+  .profile-usermenu ul li.active {
+    border-bottom: none;
+  }
+  
+  .profile-usermenu ul li.active a {
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    margin-left: -2px;
+  }
+  
+  /* Profile Content */
+  .profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+  }
+  
+  .img-responsive{
+    margin-left: 5.4vw;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
+      -webkit-border-radius: 0!important;
+      -moz-border-radius: 0!important;
+      border-radius: 0!important;
+  }
+  .dashboard-stat, .portlet {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+  }
+  .portlet {
+      margin-top: 0;
+      margin-bottom: 25px;
+      padding: 0;
+      border-radius: 4px;
+  }
+  .portlet.bordered {
+      border-left: 2px solid #e6e9ec!important;
+  }
+  .portlet.light {
+      padding: 12px 20px 15px;
+      background-color: #fff;
+  }
+  .portlet.light.bordered {
+      border: 1px solid #e7ecf1!important;
+  }
+  .list-separated {
+      margin-top: 10px;
+      margin-bottom: 15px;
+  }
+  .profile-stat {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f4f7;
+  }
+  .profile-stat-title {
+      color: #7f90a4;
+      font-size: 25px;
+      text-align: center;
+  }
+  .uppercase {
+      text-transform: uppercase!important;
+  }
+  
+  .profile-stat-text {
+      color: #5b9bd1;
+      font-size: 10px;
+      font-weight: 600;
+      text-align: center;
+  }
+  .profile-desc-title {
+      color: #7f90a4;
+      font-size: 17px;
+      font-weight: 600;
+  }
+  .profile-desc-text {
+      color: #7e8c9e;
+      font-size: 14px;
+  }
+  .margin-top-20 {
+      margin-top: 20px!important;
+  }
+  [class*=" fa-"]:not(.fa-stack), [class*=" glyphicon-"], [class*=" icon-"], [class^=fa-]:not(.fa-stack), [class^=glyphicon-], [class^=icon-] {
+      display: inline-block;
+      line-height: 14px;
+      -webkit-font-smoothing: antialiased;
+  }
+  .profile-desc-link i {
+      width: 22px;
+      font-size: 19px;
+      color: #abb6c4;
+      margin-right: 5px;
+  }
+  
+  
+
+    /* FOR TABLE */
+    *{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    body{
+        font-family: Helvetica;
+        -webkit-font-smoothing: antialiased;
+        /* background: rgba( 71, 147, 227, 1); */
+    }
+    h2{
+        text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: white;
+        padding: 30px 0;
+    }
+    
+    /* Table Styles */
+    
+    .table-wrapper{
+        margin: 10px 70px 70px;
+        box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    }
+    
+    .fl-table {
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: normal;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        /* max-width: 100%; */
+        white-space: nowrap;
+        background-color: white;
+    }
+    
+    .fl-table td, .fl-table th {
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .fl-table td {
+        border-right: 1px solid #f8f8f8;
+        font-size: 16px;
+    }
+    
+    .fl-table thead th {
+        color: #ffffff;
+        background: #4FC3A1;
+    }
+    
+    
+    .fl-table thead th:nth-child(odd) {
+        color: #ffffff;
+        background: #324960;
+    }
+    
+    .fl-table tr:nth-child(even) {
+        background: #F8F8F8;
+    }
+    
+    /* Responsive */
+    
+    @media (max-width: 767px) {
+        .fl-table {
+            display: block;
+            width: 96%;
+        }
+        .table-wrapper{
+            margin: 4vh 0;
+        }
+        .table-wrapper:before{
+            content: "Scroll horizontally >";
+            display: block;
+            text-align: right;
+            font-size: 11px;
+            color: white;
+            padding: 0 0 10px;
+        }
+        .fl-table thead, .fl-table tbody, .fl-table thead th {
+            display: block;
+        }
+        .fl-table thead th:last-child{
+            border-bottom: none;
+        }
+        .fl-table thead {
+            float: left;
+        }
+        .fl-table tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+        }
+        .fl-table td, .fl-table th {
+            padding: 20px .625em .625em .625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+        }
+        .fl-table thead th {
+            text-align: left;
+            border-bottom: 1px solid #f7f7f9;
+        }
+        .fl-table tbody tr {
+            display: table-cell;
+        }
+        .fl-table tbody tr:nth-child(odd) {
+            background: none;
+        }
+        .fl-table tr:nth-child(even) {
+            background: transparent;
+        }
+        .fl-table tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tr td:nth-child(even) {
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tbody td {
+            display: block;
+            text-align: center;
+        }
+    }

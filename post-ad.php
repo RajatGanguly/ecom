@@ -1,462 +1,908 @@
 <?php
-include("./db/config.php");
+ include("db/header.php"); 
+ ?>
+<?php
+if (!isset($_SESSION["id"])) {
+    header("location: ./login.php");
+}
+$u_id = $_SESSION["id"];
+$title = "";
+$description = "";
+$prop_type = "";
+$bedroom = "";
+$monthly_weekly = "";
+$reg_no = "";
+$make = "";
+$model = "";
+$milage = "";
+$parts_for_vehicle = "";
+$parts_name = "";
+$website = "";
+$youtube = "";
+$price = "";
+$email = "";
+$phone = "";
+$city = "";
+$country = "";
+
+    // RENT
+
+    if (isset($_POST["rent_prop_type"])) {
+        $title .= $_POST["rent_title"];
+        $sub_cat = $_POST["optradio"];
+        $description .= $_POST["rent_description"];
+        // echo "Title: " . $_POST["rent_title"];
+        // echo "Lodu title:  ".$title.'\n';
+
+    if (isset($_POST["rent_prop_type"])) {
+        $prop_type .= $_POST["rent_prop_type"];
+    }
+    if (isset($_POST["rent_bedroom"])) {
+        $bedroom .= $_POST["rent_bedroom"];
+    }
+    if (isset($_POST["rent_youtube"])) {
+        $youtube .= $_POST["rent_youtube"];
+    }
+    if (isset($_POST["rent_email"])) {
+        $email .= $_POST["rent_email"];
+    }
+    if (isset($_POST["rent_phone"])) {
+        $phone .= $_POST["rent_phone"];
+    }
+    if (isset($_POST["rent_city"])) {
+        $city .= $_POST["rent_city"];
+    }
+    if (isset($_POST["rent_country"])) {
+        $country .= $_POST["rent_country"];
+    }
+    if (isset($_POST["rent_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["rent_monthly_weekly"];
+    }
+    if (isset($_POST["parts_for_vehicle"])) {
+        $parts_for_vehicle .= $_POST["parts_for_vehicle"];
+    }
+    if (isset($_POST["parts_name"])) {
+        $parts_name .= $_POST["parts_name"];
+    }
+    if (isset($_POST["website"])) {
+        $website .= $_POST["website"];
+    }
+    if (isset($_POST["rent_price"])) {           
+        $price .= $_POST["rent_price"];
+    }
+}
+
+    // SALE
+    if (isset($_POST["sale_title"])) {
+        $title .= $_POST["sale_title"];
+        $sub_cat = $_POST["optradio"];
+        $description .= $_POST["sale_description"];
+        // echo "Title: " . $title;
+
+    if (isset($_POST["sale_prop_type"])) {
+        $prop_type .= $_POST["sale_prop_type"];
+    }
+    if (isset($_POST["sale_bedroom"])) {
+        $bedroom .= $_POST["sale_bedroom"];
+    }
+    if (isset($_POST["sale_youtube"])) {
+        $youtube .= $_POST["sale_youtube"];
+    }
+    if (isset($_POST["sale_email"])) {
+        $email .= $_POST["sale_email"];
+    }
+    if (isset($_POST["sale_phone"])) {
+        $phone .= $_POST["sale_phone"];
+    }
+    if (isset($_POST["sale_city"])) {
+        $city .= $_POST["sale_city"];
+    }
+    if (isset($_POST["sale_country"])) {
+        $country .= $_POST["sale_country"];
+    }
+    if (isset($_POST["sale_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["sale_monthly_weekly"];
+    }
+    if (isset($_POST["sale_website"])) {
+        $website .= $_POST["sale_website"];
+    }
+    if (isset($_POST["sale_price"])) {           
+        $price .= $_POST["sale_price"];
+    }
+}
+
+    // LAND
+    if (isset($_POST["land_title"])) {
+        $title .= $_POST["land_title"];
+        $sub_cat = $_POST["optradio"];
+        $description .= $_POST["land_description"];
+        // echo "Title: " . $title;
+
+    if (isset($_POST["land_prop_type"])) {
+        $prop_type .= $_POST["land_prop_type"];
+    }
+    if (isset($_POST["land_bedroom"])) {
+        $bedroom .= $_POST["land_bedroom"];
+    }
+    if (isset($_POST["land_youtube"])) {
+        $youtube .= $_POST["land_youtube"];
+    }
+    if (isset($_POST["land_email"])) {
+        $email .= $_POST["land_email"];
+    }
+    if (isset($_POST["land_phone"])) {
+        $phone .= $_POST["land_phone"];
+    }
+    if (isset($_POST["land_city"])) {
+        $city .= $_POST["land_city"];
+    }
+    if (isset($_POST["land_country"])) {
+        $country .= $_POST["land_country"];
+    }
+    if (isset($_POST["land_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["land_monthly_weekly"];
+    }
+    if (isset($_POST["land_website"])) {
+        $website .= $_POST["land_website"];
+    }
+    if (isset($_POST["land_price"])) {           
+        $price .= $_POST["land_price"];
+    }
+}
+
+   // HOLIDAY
+   if (isset($_POST["holiday_title"])) {
+    $title .= $_POST["holiday_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["holiday_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["holiday_prop_type"])) {
+        $prop_type .= $_POST["holiday_prop_type"];
+    }
+    if (isset($_POST["holiday_bedroom"])) {
+        $bedroom .= $_POST["holiday_bedroom"];
+    }
+    if (isset($_POST["holiday_youtube"])) {
+        $youtube .= $_POST["holiday_youtube"];
+    }
+    if (isset($_POST["holiday_email"])) {
+        $email .= $_POST["holiday_email"];
+    }
+    if (isset($_POST["holiday_phone"])) {
+        $phone .= $_POST["holiday_phone"];
+    }
+    if (isset($_POST["holiday_city"])) {
+        $city .= $_POST["holiday_city"];
+    }
+    if (isset($_POST["holiday_country"])) {
+        $country .= $_POST["holiday_country"];
+    }
+    if (isset($_POST["holiday_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["holiday_monthly_weekly"];
+    }
+    if (isset($_POST["holiday_website"])) {
+        $website .= $_POST["holiday_website"];
+    }
+    if (isset($_POST["holiday_price"])) {           
+        $price .= $_POST["holiday_price"];
+    }
+}
+
+  // HOLIDAY
+  if (isset($_POST["holiday_title"])) {
+    $title .= $_POST["holiday_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["holiday_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["holiday_prop_type"])) {
+        $prop_type .= $_POST["holiday_prop_type"];
+    }
+    if (isset($_POST["holiday_bedroom"])) {
+        $bedroom .= $_POST["holiday_bedroom"];
+    }
+    if (isset($_POST["holiday_youtube"])) {
+        $youtube .= $_POST["holiday_youtube"];
+    }
+    if (isset($_POST["holiday_email"])) {
+        $email .= $_POST["holiday_email"];
+    }
+    if (isset($_POST["holiday_phone"])) {
+        $phone .= $_POST["holiday_phone"];
+    }
+    if (isset($_POST["holiday_city"])) {
+        $city .= $_POST["holiday_city"];
+    }
+    if (isset($_POST["holiday_country"])) {
+        $country .= $_POST["holiday_country"];
+    }
+    if (isset($_POST["holiday_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["holiday_monthly_weekly"];
+    }
+    if (isset($_POST["holiday_website"])) {
+        $website .= $_POST["holiday_website"];
+    }
+    if (isset($_POST["holiday_price"])) {           
+        $price .= $_POST["holiday_price"];
+    }
+}
+
+// VEHICLE
+if (isset($_POST["vehicle_title"])) {
+    $title .= $_POST["vehicle_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["vehicle_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["vehicle_prop_type"])) {
+        $prop_type .= $_POST["vehicle_prop_type"];
+    }
+    if (isset($_POST["vehicle_bedroom"])) {
+        $bedroom .= $_POST["vehicle_bedroom"];
+    }
+    if (isset($_POST["vehicle_youtube"])) {
+        $youtube .= $_POST["vehicle_youtube"];
+    }
+    if (isset($_POST["vehicle_email"])) {
+        $email .= $_POST["vehicle_email"];
+    }
+    if (isset($_POST["vehicle_phone"])) {
+        $phone .= $_POST["vehicle_phone"];
+    }
+    if (isset($_POST["vehicle_city"])) {
+        $city .= $_POST["vehicle_city"];
+    }
+    if (isset($_POST["vehicle_country"])) {
+        $country .= $_POST["vehicle_country"];
+    }
+    if (isset($_POST["vehicle_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["vehicle_monthly_weekly"];
+    }
+    if (isset($_POST["vehicle_website"])) {
+        $website .= $_POST["vehicle_website"];
+    }
+    if (isset($_POST["vehicle_price"])) {           
+        $price .= $_POST["vehicle_price"];
+    }
+    if (isset($_POST["vehicle_reg_no"])) {
+        $reg_no .= $_POST["vehicle_reg_no"];
+    }
+    if (isset($_POST["vehicle_make"])) {
+        $make .= $_POST["vehicle_make"];
+    }
+    if (isset($_POST["vehicle_model"])) {
+        $model .= $_POST["vehicle_model"];
+    }
+    if (isset($_POST["vehicle_milage"])) {
+        $milage .= $_POST["vehicle_milage"];
+    }
+}
+
+// PARTS
+if (isset($_POST["parts_title"])) {
+    $title .= $_POST["parts_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["parts_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["parts_prop_type"])) {
+        $prop_type .= $_POST["parts_prop_type"];
+    }
+    if (isset($_POST["parts_bedroom"])) {
+        $bedroom .= $_POST["parts_bedroom"];
+    }
+    if (isset($_POST["parts_youtube"])) {
+        $youtube .= $_POST["parts_youtube"];
+    }
+    if (isset($_POST["parts_email"])) {
+        $email .= $_POST["parts_email"];
+    }
+    if (isset($_POST["parts_phone"])) {
+        $phone .= $_POST["parts_phone"];
+    }
+    if (isset($_POST["parts_city"])) {
+        $city .= $_POST["parts_city"];
+    }
+    if (isset($_POST["parts_country"])) {
+        $country .= $_POST["parts_country"];
+    }
+    if (isset($_POST["vehicle_monthly_weekly"])) {
+        $monthly_weekly .= $_POST["vehicle_monthly_weekly"];
+    }
+    if (isset($_POST["parts_website"])) {
+        $website .= $_POST["parts_website"];
+    }
+    if (isset($_POST["parts_price"])) {           
+        $price .= $_POST["parts_price"];
+    }
+}
+
+// CLOTHES
+if (isset($_POST["clothes_title"])) {
+    $title .= $_POST["clothes_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["clothes_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["clothes_prop_type"])) {
+        $prop_type .= $_POST["clothes_prop_type"];
+    }
+    if (isset($_POST["clothes_bedroom"])) {
+        $bedroom .= $_POST["clothes_bedroom"];
+    }
+    if (isset($_POST["clothes_youtube"])) {
+        $youtube .= $_POST["clothes_youtube"];
+    }
+    if (isset($_POST["clothes_email"])) {
+        $email .= $_POST["clothes_email"];
+    }
+    if (isset($_POST["clothes_phone"])) {
+        $phone .= $_POST["clothes_phone"];
+    }
+    if (isset($_POST["clothes_city"])) {
+        $city .= $_POST["clothes_city"];
+    }
+    if (isset($_POST["clothes_country"])) {
+        $country .= $_POST["clothes_country"];
+    }
+    if (isset($_POST["clothes_website"])) {
+        $website .= $_POST["clothes_website"];
+    }
+    if (isset($_POST["clothes_price"])) {           
+        $price .= $_POST["clothes_price"];
+    }
+}
+
+// ELECTRICAL
+if (isset($_POST["electronics_electrical_title"])) {
+    $title .= $_POST["electronics_electrical_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["electronics_electrical_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["electronics_electrical_prop_type"])) {
+        $prop_type .= $_POST["electronics_electrical_prop_type"];
+    }
+    if (isset($_POST["electronics_electrical_bedroom"])) {
+        $bedroom .= $_POST["electronics_electrical_bedroom"];
+    }
+    if (isset($_POST["electronics_electrical_youtube"])) {
+        $youtube .= $_POST["electronics_electrical_youtube"];
+    }
+    if (isset($_POST["electronics_electrical_email"])) {
+        $email .= $_POST["electronics_electrical_email"];
+    }
+    if (isset($_POST["electronics_electrical_phone"])) {
+        $phone .= $_POST["electronics_electrical_phone"];
+    }
+    if (isset($_POST["electronics_electrical_city"])) {
+        $city .= $_POST["electronics_electrical_city"];
+    }
+    if (isset($_POST["electronics_electrical_country"])) {
+        $country .= $_POST["electronics_electrical_country"];
+    }
+    if (isset($_POST["electronics_electrical_website"])) {
+        $website .= $_POST["electronics_electrical_website"];
+    }
+    if (isset($_POST["electronics_electrical_price"])) {           
+        $price .= $_POST["electronics_electrical_price"];
+    }
+}
+// SERVICE
+if (isset($_POST["services_title"])) {
+    $title .= $_POST["services_title"];
+    $sub_cat = $_POST["optradio"];
+    $description .= $_POST["services_description"];
+    // echo "Title: " . $title;
+
+    if (isset($_POST["services_prop_type"])) {
+        $prop_type .= $_POST["services_prop_type"];
+    }
+    if (isset($_POST["services_bedroom"])) {
+        $bedroom .= $_POST["services_bedroom"];
+    }
+    if (isset($_POST["services_youtube"])) {
+        $youtube .= $_POST["services_youtube"];
+    }
+    if (isset($_POST["services_email"])) {
+        $email .= $_POST["services_email"];
+    }
+    if (isset($_POST["services_phone"])) {
+        $phone .= $_POST["services_phone"];
+    }
+    if (isset($_POST["services_city"])) {
+        $city .= $_POST["services_city"];
+    }
+    if (isset($_POST["services_country"])) {
+        $country .= $_POST["services_country"];
+    }
+    if (isset($_POST["services_website"])) {
+        $website .= $_POST["services_website"];
+    }
+    if (isset($_POST["services_price"])) {           
+        $price .= $_POST["services_price"];
+    }
+}
+
+
+if(isset($_POST["rent_title"]) || isset($_POST["sale_title"]) || isset($_POST["holiday_title"]) || isset($_POST["land_title"]) || isset($_POST["vehicles_title"]) || isset($_POST["part_title"]) || isset($_POST["clothes_title"]) || isset($_POST["electronics_electrical_title"]) || isset($_POST["services_title"])){
+    if ($sub_cat == 'rent' or $sub_cat == 'sale' or $sub_cat == 'land' or $sub_cat == 'holiday_rental') {
+        $cat = "property";
+    } else if ($sub_cat == 'cars' or $sub_cat == 'vans' or $sub_cat == 'trucks' or $sub_cat == 'tractors' or $sub_cat == 'motorbikes' or $sub_cat == 'parts') {
+        $cat = "cars_vehicles";
+    } else if ($sub_cat == 'men_clothes' or $sub_cat == 'women_clothes' or $sub_cat == 'kids_clothes' or $sub_cat == 'men_footwear' or $sub_cat == 'women_footwear' or $sub_cat == 'kids_footwear') {
+        $cat = "clothes";
+    } else if ($sub_cat == 'computers_softwares' or $sub_cat == 'tv_dvd' or $sub_cat == 'video_games' or $sub_cat == 'mobile_phones' or $sub_cat == 'audio_stereo' or $sub_cat == 'electrical_appliances' or $sub_cat == 'electronic_items') {
+        $cat = "electronics_electrical";
+    } else if ($sub_cat == 'travel_tourism' or $sub_cat == 'transport_taxis' or $sub_cat == 'tuition_classes' or $sub_cat == 'wedding_halls' or $sub_cat == 'decorations' or $sub_cat == 'furniture' or $sub_cat == 'hair_beauty' or $sub_cat == 'health_services') {
+        $cat = "services";
+    } else {
+        $cat = "others";
+    }
+    $img_pre = "";
+    if ($cat == "clothes" || $cat == "electronics_electrical" || $cat == "services") {
+        $img_pre .= $cat;
+    }
+    if ($cat == "cars_vehicles") {
+        if ($sub_cat == "parts") {
+            $img_pre .= $sub_cat;
+        } else {
+            $img_pre .= $cat;
+        }
+    }
+    if ($cat == "property") {
+        $img_pre .= $sub_cat;
+    }
+    $image1 = $_FILES[$img_pre . "_image1"];
+    $image_name1 = "./product_pics/" . $image1['name'];
+    move_uploaded_file($image1['tmp_name'], $image_name1);
+
+    $image2 = $_FILES[$img_pre . "_image2"];
+    $image_name2 = "./product_pics/" . $image2['name'];
+    move_uploaded_file($image2['tmp_name'], $image_name2);
+
+    $image3 = $_FILES[$img_pre . "_image3"];
+    $image_name3 = "./product_pics/" . $image3['name'];
+    move_uploaded_file($image3['tmp_name'], $image_name3);
+
+    $image4 = $_FILES[$img_pre . "_image4"];
+    $image_name4 = "./product_pics/" . $image4['name'];
+    move_uploaded_file($image4['tmp_name'], $image_name4);
+
+    // echo "Testing";
+    // echo "<pre>";
+    // print_r($_FILES);
+    // echo "</pre>";
+    echo $_POST["rent_title"];
+    echo "city:" .$city;
+    echo "title1:" .$title;
+    echo "title2:" .$_POST["rent_title"];
+
+        $sql = "INSERT INTO `items`(`p_name`, `u_id`, `description`, `image1`, `image2`, `image3`, `image4`, `category`, `youtube`, `sub_category`, `price`, `prop_type`, `email`, `phone`, `city`, `country`, `monthly_weekly`, `reg_no`, `make`, `model`, `milage`, `parts_for_vehicle`, `parts_name`, `website`) VALUES('$title','$u_id', '$description','$image_name1','$image_name2','$image_name3','$image_name4','$cat','$youtube','$sub_cat','$price','$prop_type','$email','$phone','$city','$country','$monthly_weekly','$reg_no','$make','$model','$milage','$parts_for_vehicle','$parts_name','$website')";
+        $result = mysqli_query($conn, $sql);
+        echo '<div class="alert alert-success" role="alert">
+        Product uploaded successfully!'.$sql.'
+      </div>';
+    }
+    // header("Location: ./");
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <title>Esukk</title>
-
-    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-
-    <link rel="stylesheet" href="css/bootstrap.css">
-
-    <link rel="stylesheet" href="css/owl.carousel.css">
-
-    <link rel="stylesheet" href="css/owl.theme.default.css" />
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/stylesheet.css">
-
-    <link rel="stylesheet" href="css/responsive.css">
-
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
-
-</head>
-
-<body>
-    <section class="section-header">
-        <div class="header" id="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2"><a class="logo" href="http://basabdash.in/esukk/index.html"><img src="Image/logo.svg" alt="" /></a></div>
-                    <div class="col-sm-8">
-                        <div class="header-search">
-                            <form onSubmit="event.preventDefault()" class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="eg. BMW 3 series, 3 seater sofa, lawnmower, dining table">
-                                <input class="form-control mr-sm-2 location" type="text" placeholder="Add your postcode or location">
-                                <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-sm-2 right-box">
-                        <div class="header-right">
-                            <div class="post-ad">
-                                <a href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> <span>Post ad</span></a>
-                            </div>
-                            <div class="login">
-                                <button class="Show"><i class="fa fa-user" aria-hidden="true"></i> <span>Login/Ragister</span></button>
-                                <div id="register-box">
-                                    <button class="Hide">Hide</button>
-                                    <h3>Welcome to Esukk</h3>
-                                    <p>Register Now</p>
-                                    <div class="register-form">
-                                        <form action="" class="wp">
-                                            <div class="form-group fix-w-l">
-                                                <label for="fname">First Name</label>
-                                                <input class="form-control contactint" placeholder="First Name" id="fname" type="text">
-                                            </div>
-                                            <div class="form-group fix-w-l">
-                                                <label for="mname">Middle Name</label>
-                                                <input class="form-control contactint" placeholder="Middle Name" id="name" type="text">
-                                            </div>
-                                            <div class="form-group fix-w-r">
-                                                <label for="sname">Surname Name</label>
-                                                <input class="form-control contactint" placeholder="Surname Name" id="lnamme" type="text">
-                                            </div>
-                                            <div class="form-group fix-w-l">
-                                                <label for="email">Email</label>
-                                                <input class="form-control contactint" placeholder="Email" id="email" type="text">
-                                            </div>
-                                            <div class="form-group fix-w-l">
-                                                <label for="password">Password</label>
-                                                <input class="form-control contactint" placeholder="Password" id="password" type="password">
-                                            </div>
-                                            <div class="form-group fix-w-r">
-                                                <label for="phone">Contact number</label>
-                                                <input class="form-control contactint" placeholder="Contact no" id="phone" type="text">
-                                            </div>
-                                            <div class="form-group check fix-w-r">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                                <label class="custom-control-label" for="customCheck2">I am a human</label>
-                                            </div>
-                                            <div class="btn-submit">
-                                                <input value="Submit" type="submit">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="menubg">
-                <div class="container">
-                    <div class="header-menu">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar-menu" aria-controls="Navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="Navbar-menu">
-
-                                <ul class="navbar-nav">
-
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Property</a>
-
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                            <div class="row no-gutters Property">
-
-                                                <div class="col-md-12">
-
-                                                    <h6 class="title">Property</h6>
-
-                                                    <ul>
-
-                                                        <li><a class="dropdown-item" href="#">Rent</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Sale</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Land</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Holiday Rental</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Holiday Rental</a></li>
-
-                                                    </ul>
-
-
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </li>
-
-
-
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                            Cars & Vehicles</a>
-
-
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                            <div class="row no-gutters car">
-
-                                                <div class="col-md-12">
-
-                                                    <h6 class="title">Cars & Vehicles</h6>
-
-                                                    <ul>
-
-                                                        <li><a class="dropdown-item" href="#">Cars</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Vans</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Trucks</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Tractors</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Motorbikes</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Parts</a></li>
-
-                                                    </ul>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clothes</a>
-
-                                        <div class="dropdown-menu dropdown-menu2" aria-labelledby="navbarDropdown">
-
-                                            <div class="row no-gutters Sale">
-
-                                                <div class="col-lg-12">
-
-                                                    <h6 class="title">Clothes</h6>
-
-                                                    <ul>
-
-                                                        <li><a class="dropdown-item" href="#">Men Clothes</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Women Clothes</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">kids Clothes</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Men footwear</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Women Footwear</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">kids footwear</a></li>
-
-                                                    </ul>
-
-                                                </div>
-
-                                            </div>
-
-                                    </li>
-
-
-
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Electronics & Electricals</a>
-
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                            <div class="row no-gutters community">
-
-                                                <div class="col-md-12">
-
-                                                    <h6 class="title">Electronics & Electrical</h6>
-
-                                                    <ul>
-
-                                                        <li><a class="dropdown-item" href="#">Computers & Software</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">TV & DVD players</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Video Games</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Mobile Phones</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Audio & Stereo</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Electrical Appliances</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Electronic Items </a></li>
-
-                                                    </ul>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </li>
-
-
-
-                                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Jobs</a></li>
-
-
-
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                            <div class="row no-gutters services">
-
-                                                <div class="col-md-12">
-
-                                                    <h6 class="title">Services</h6>
-
-                                                    <ul>
-
-                                                        <li><a class="dropdown-item" href="#">Travel & Tourism</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Transport & Taxis</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Tuition Classes</a></li>
-
-
-
-
-
-                                                        <li><a class="dropdown-item" href="#">Wedding Halls</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Decorations</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Furniture’s</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Hair & Beauty</a></li>
-
-                                                        <li><a class="dropdown-item" href="#">Health Services</a></li>
-
-                                                    </ul>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </li>
-
-                                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Selling Items</a></li>
-
-                                    <li class="nav-item"><a class="nav-link" href="contact-us.html">About Us</a></li>
-
-                                    <li class="nav-item"><a class="nav-link" href="contact-us.html">How It Works</a></li>
-
-                                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-
+<section class="post-ad-content">
+    <div class="container">
+        <div class="row">
+            <h3 class="title">Post an ad</h3>
+            <form name="" action="<?php echo $_SERVER["PHP_SELF"]; ?>/" class="post-add-form" method="POST" enctype="multipart/form-data">
+                <div class="categoty content-box">
+                    <h3 class="sec-title">Category</h3>
+                    <div class="secect-category">
+                        <label for="posting">select category</label>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#property">Property</a></li>
+                            <li><a data-toggle="tab" href="#vehicles">Cars & Vehicles</a></li>
+                            <li><a data-toggle="tab" href="#clothes">Clothes</a></li>
+                            <li><a data-toggle="tab" href="#electricals">Electronics & Electricals</a></li>
+                            <li><a data-toggle="tab" href="#jobs">Jobs</a></li>
+                            <li><a data-toggle="tab" href="#services">Services</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="property" class="tab-pane fade in active">
+                                <ul class="sub-category">
+                                    <li><label><input type="radio" name="optradio" value="rent" checked>Rent</label></li>
+                                    <li><label><input type="radio" name="optradio" value="sale" checked>Sale</label></li>
+                                    <li><label><input type="radio" name="optradio" value="land" checked>Land</label></li>
+                                    <li><label><input type="radio" name="optradio" value="holiday_rental" checked>Holiday Rental</label></li>
                                 </ul>
+                            </div>
+                            <div id="vehicles" class="tab-pane fade">
+                                <ul class="sub-category">
+                                    <li><label><input type="radio" name="optradio" value="cars" checked>Cars</label></li>
+                                    <li><label><input type="radio" name="optradio" value="vans" checked>Vans</label></li>
+                                    <li><label><input type="radio" name="optradio" value="trucks" checked>Trucks</label></li>
+                                    <li><label><input type="radio" name="optradio" value="tractors" checked>Tractors</label></li>
+                                    <li><label><input type="radio" name="optradio" value="motorbikes" checked>Motorbikes</label></li>
+                                    <li><label><input type="radio" name="optradio" value="parts" checked>Parts</label></li>
+                                </ul>
+                            </div>
+                            <div id="clothes" class="tab-pane fade">
+                                <ul class="sub-category">
+                                    <li><label><input type="radio" name="optradio" value="men_clothes" checked>Men Clothes</label></li>
+                                    <li><label><input type="radio" name="optradio" value="women_clothes" checked>Women Clothes</label></li>
+                                    <li><label><input type="radio" name="optradio" value="kids_clothes" checked>kids Clothes</label></li>
+                                    <li><label><input type="radio" name="optradio" value="men_footwear" checked>Men footwear</label></li>
+                                    <li><label><input type="radio" name="optradio" value="women_footwear" checked>Women Footwear</label></li>
+                                    <li><label><input type="radio" name="optradio" value="kids_footwear" checked>kids footwear</label></li>
+                                </ul>
+                            </div>
+                            <div id="electricals" class="tab-pane fade">
+                                <ul class="sub-category">
+                                    <li><label><input type="radio" name="optradio" value="computers_softwares" checked>Computers & Software</label></li>
+                                    <li><label><input type="radio" name="optradio" value="tv_dvd" checked>TV & DVD players</label></li>
+                                    <li><label><input type="radio" name="optradio" value="video_games" checked>Video Games</label></li>
+                                    <li><label><input type="radio" name="optradio" value="mobile_phones" checked>Mobile Phones</label></li>
+                                    <li><label><input type="radio" name="optradio" value="audio_stereo" checked>Audio & Stereo</label></li>
+                                    <li><label><input type="radio" name="optradio" value="electrical_appliance" checked>Electrical Appliances</label></li>
+                                    <li><label><input type="radio" name="optradio" value="electronic_items" checked>Electronic Items</label></li>
+                                </ul>
+                            </div>
+                            <div id="jobs" class="tab-pane fade">
 
                             </div>
+                            <div id="services" class="tab-pane fade">
+                                <ul class="sub-category">
+                                    <li><label><input type="radio" name="optradio" value="travel_tourism" checked>Travel & Tourism</label></li>
+                                    <li><label><input type="radio" name="optradio" value="transport_taxis" checked>Transport & Taxis</label></li>
+                                    <li><label><input type="radio" name="optradio" value="tuition_classes" checked>Tuition Classes</label></li>
+                                    <li><label><input type="radio" name="optradio" value="wedding_hall" checked>Wedding Halls</label></li>
+                                    <li><label><input type="radio" name="optradio" value="decorations" checked>Decorations</label></li>
+                                    <li><label><input type="radio" name="optradio" value="furnitures" checked>Furniture</label></li>
+                                    <li><label><input type="radio" name="optradio" value="hair_beauty" checked>Hair & Beauty</label></li>
+                                    <li><label><input type="radio" name="optradio" value="health_services" checked>Health Services</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                        </nav>
+
+                <!-- RENT -->
+                <div class="dynamic-post-ad cat-rent" style="display: none;">
+                    <div class="rent">
+                        <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_title">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Property Type</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Property Type </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_prop_type">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Number of Bedroom</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Number of Bedroom </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_bedroom">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="rent_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Rent</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="rent_price">
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Monthly / Weekly</h3>
+                            <div class="form-group fix-w-l">
+                                <select name="rent_rent_time" id="" name="rent_monthly_weekly">
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="rent_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="rent_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="rent_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="rent_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="youtube-link">
+                            <h3>Add a YouTube video link:</h3>
+                            <div class="link-box"><img src="Image/youtube-icon.png">
+                                <div class="form-group fix-w-l">
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_youtube">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Email</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Email id</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="email" name="rent_email">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Phone</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Phone No</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_phone">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">City</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your city</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_city">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Country</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your country</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="rent_country">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
 
                     </div>
                 </div>
-            </div>
 
-        </div>
 
-    </section>
 
-    <section class="post-ad-content">
-        <div class="container">
-            <div class="row">
-                <h3 class="title">Post an ad</h3>
-                <form name="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" class="post-add-form" method="get">
-                    <div class="categoty content-box">
-                        <h3 class="sec-title">Category</h3>
-                        <div class="secect-category">
-                            <label for="posting">select category</label>
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#property">Property</a></li>
-                                <li><a data-toggle="tab" href="#vehicles">Cars & Vehicles</a></li>
-                                <li><a data-toggle="tab" href="#clothes">Clothes</a></li>
-                                <li><a data-toggle="tab" href="#electricals">Electronics & Electricals</a></li>
-                                <li><a data-toggle="tab" href="#jobs">Jobs</a></li>
-                                <li><a data-toggle="tab" href="#services">Services</a></li>
-                            </ul>
+                <!-- SALE -->
+                <div class="dynamic-post-ad cat-sale" style="display: none;">
+                    <div class="sale">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_title">
+                            </div>
+                        </div>
 
-                            <div class="tab-content">
-                                <div id="property" class="tab-pane fade in active">
-                                    <ul class="sub-category">
-                                        <li><label><input type="radio" name="optradio" value="rent" checked>Rent</label></li>
-                                        <li><label><input type="radio" name="optradio" value="sale" checked>Sale</label></li>
-                                        <li><label><input type="radio" name="optradio" value="land" checked>Land</label></li>
-                                        <li><label><input type="radio" name="optradio" value="holiday_rental" checked>Holiday Rental</label></li>
-                                    </ul>
-                                </div>
-                                <div id="vehicles" class="tab-pane fade">
-                                    <ul class="sub-category">
-                                        <li><label><input type="radio" name="optradio" value="cars" checked>Cars</label></li>
-                                        <li><label><input type="radio" name="optradio" value="vans" checked>Vans</label></li>
-                                        <li><label><input type="radio" name="optradio" value="trucks" checked>Trucks</label></li>
-                                        <li><label><input type="radio" name="optradio" value="tractors" checked>Tractors</label></li>
-                                        <li><label><input type="radio" name="optradio" value="motorbikes" checked>Motorbikes</label></li>
-                                        <li><label><input type="radio" name="optradio" value="parts" checked>Parts</label></li>
-                                    </ul>
-                                </div>
-                                <div id="clothes" class="tab-pane fade">
-                                    <ul class="sub-category">
-                                        <li><label><input type="radio" name="optradio" value="men_clothes" checked>Men Clothes</label></li>
-                                        <li><label><input type="radio" name="optradio" value="women_clothes" checked>Women Clothes</label></li>
-                                        <li><label><input type="radio" name="optradio" value="kids_clothes" checked>kids Clothes</label></li>
-                                        <li><label><input type="radio" name="optradio" value="men_footwear" checked>Men footwear</label></li>
-                                        <li><label><input type="radio" name="optradio" value="women_footwear" checked>Women Footwear</label></li>
-                                        <li><label><input type="radio" name="optradio" value="kids_footwear" checked>kids footwear</label></li>
-                                    </ul>
-                                </div>
-                                <div id="electricals" class="tab-pane fade">
-                                    <ul class="sub-category">
-                                        <li><label><input type="radio" name="optradio" value="computers_softwares" checked>Computers & Software</label></li>
-                                        <li><label><input type="radio" name="optradio" value="tv_dvd" checked>TV & DVD players</label></li>
-                                        <li><label><input type="radio" name="optradio" value="video_games" checked>Video Games</label></li>
-                                        <li><label><input type="radio" name="optradio" value="mobile_phones" checked>Mobile Phones</label></li>
-                                        <li><label><input type="radio" name="optradio" value="audio_stereo" checked>Audio & Stereo</label></li>
-                                        <li><label><input type="radio" name="optradio" value="electrical_appliance" checked>Electrical Appliances</label></li>
-                                        <li><label><input type="radio" name="optradio" value="electronic_items" checked>Electronic Items</label></li>
-                                    </ul>
-                                </div>
-                                <div id="jobs" class="tab-pane fade">
+                        <div class="content-box">
+                            <h3 class="sec-title">Property Type</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Property Type </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_prop_type">
+                            </div>
+                        </div>
 
+                        <div class="content-box">
+                            <h3 class="sec-title">Number of Bedroom</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Number of Bedroom </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_bedroom">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="sale_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Price you want</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="sale_price">
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="sale_image1">
+                                    </label>
                                 </div>
-                                <div id="services" class="tab-pane fade">
-                                    <ul class="sub-category">
-                                        <li><label><input type="radio" name="optradio" checked>Travel & Tourism</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Transport & Taxis</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Tuition Classes</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Wedding Halls</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Decorations</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Furniture</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Hair & Beauty</label></li>
-                                        <li><label><input type="radio" name="optradio" checked>Health Services</label></li>
-                                    </ul>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="sale_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="sale_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="sale_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="youtube-link">
+                            <h3>Add a YouTube video link:</h3>
+                            <div class="link-box"><img src="Image/youtube-icon.png">
+                                <div class="form-group fix-w-l">
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_youtube">
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="location content-box">
-                        <h3 class="sec-title">Location</h3>
-                        <div class="form-group fix-w-l">
-                            <label for="posting">Enter your post code</label>
-                            <input class="form-control contactint" placeholder="e.g. TW9 1EL" id="posting" type="text">
-                        </div>
-                    </div>
-
-                    <div class="ad-title content-box">
-                        <h3 class="sec-title">Ad Title</h3>
-                        <div class="form-group fix-w-l">
-                            <label for="posting">Enter Title </label>
-                            <input class="form-control contactint" placeholder="" id="posting" type="text">
-                        </div>
-                    </div>
-
-                    <div class="images content-box">
-                        <h3 class="sec-title">Images</h3>
-                        <div class="upload-image">
-                            <div class="imgUp">
-                                <div class="imagePreview"></div>
-                                <label class="btn btn-primary">
-                                    Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
-                                </label>
+                        <div class="content-box">
+                            <h3 class="sec-title">Email</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Email id</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="email" name="sale_email">
                             </div>
-                            <i class="fa fa-plus imgAdd"></i>
+                        </div>
 
+                        <div class="content-box">
+                            <h3 class="sec-title">Phone</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Phone No</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_phone">
+                            </div>
                         </div>
-                        <div class="section-text">
-                            <h4>You can add up to 20 images</h4>
-                            <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">City</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your city</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_city">
+                            </div>
                         </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Country</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your country</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="sale_country">
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <!-- LAND -->
+                <div class="dynamic-post-ad cat-land" style="display: none;">
+                    <div class="land">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="land_title">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="land_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Price you want</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="land_price">
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="land_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="land_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="land_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="land_image4">
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="section-text">
+                                <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                            </div>
+                        </div>
+
                         <div class="youtube-link">
                             <h3>Add a YouTube video link:</h3>
                             <div class="link-box"><img src="Image/youtube-icon.png">
@@ -465,161 +911,832 @@ include("./db/config.php");
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="description content-box">
-                        <h3 class="sec-title">Description</h3>
-                        <div class="form-group fix-w-l">
-                            <label for="posting">Enter product description</label>
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                            <p>10000 characters remaining (12 words minimum).</p>
-                            <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                        <div class="content-box">
+                            <h3 class="sec-title">Email</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Email id</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="email" name="land_email">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="price content-box">
-                        <h3 class="sec-title">How much do you want for your item?</h3>
-                        <div class="form-group fix-w-l">
-                            <label for="posting">Price: </label>
-                            <input class="form-control contactint" placeholder="£" id="posting" type="text">
+                        <div class="content-box">
+                            <h3 class="sec-title">Phone</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Phone No</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="land_phone">
+                            </div>
                         </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">City</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your city</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="land_city">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Country</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your country</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="land_country">
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
                     </div>
-                    <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
-                </form>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="top-search">
-        <div class="uk-search">
-            <div class="searches">
-                <h5 class="sec-title">Top searches in the UK</h5>
-                <ul>
-                    <li class="title">Community</li>
-                    <li class="item"> <a href="#">Keyboard player</a></li>
-                    <li class="item"> <a href="#">Football teams looking for players</a></li>
-                    <li class="item"> <a href="#">Football</a></li>
-                    <li class="item"> <a href="#">Wanted</a></li>
-                    <li class="item"> <a href="#">Bands</a></li>
-                </ul>
-
-                <ul>
-                    <li class="title">For Sale</li>
-                    <li class="item"> <a href="#">Free</a></li>
-                    <li class="item"> <a href="#">Sofa</a></li>
-                    <li class="item"> <a href="#">For for sale</a></li>
-                    <li class="item"> <a href="#">Garden</a></li>
-                    <li class="item"> <a href="#">Chair</a></li>
-                </ul>
-
-                <ul>
-                    <li class="title">Jobs</li>
-                    <li class="item"> <a href="#">Jobs</a></li>
-                    <li class="item"> <a href="#">Part time jobs</a></li>
-                    <li class="item"> <a href="#">Immediate start</a></li>
-                    <li class="item"> <a href="#">Live in</a></li>
-                </ul>
-
-                <ul>
-                    <li class="title">Motors</li>
-                    <li class="item"> <a href="#">Cars</a></li>
-                    <li class="item"> <a href="#">Mercedes-Benz A-Class</a></li>
-                    <li class="item"> <a href="#">BMW 1 Series</a></li>
-                    <li class="item"> <a href="#">Land Rover Defender</a></li>
-                    <li class="item"> <a href="#">VW Campervan</a></li>
-                </ul>
-
-                <ul>
-                    <li class="title">Pets</li>
-                    <li class="item"> <a href="#">Kittens</a></li>
-                    <li class="item"> <a href="#">Puppies</a></li>
-                    <li class="item"> <a href="#">Dog</a></li>
-                    <li class="item"> <a href="#">Cat</a></li>
-                    <li class="item"> <a href="#">French bulldog</a></li>
-                </ul>
-
-                <ul>
-                    <li class="title">Property</li>
-                    <li class="item"> <a href="#">Private house to rent</a></li>
-                    <li class="item"> <a href="#">Room to rent</a></li>
-                    <li class="item"> <a href="#">House to rent</a></li>
-                    <li class="item"> <a href="#">Room</a></li>
-                    <li class="item"> <a href="#">Rent</a></li>
-                </ul>
-
-                <ul>
-                    <li class="title">Services</li>
-                    <li class="item"> <a href="#">Massage</a></li>
-                    <li class="item"> <a href="#">Full body massage</a></li>
-                    <li class="item"> <a href="#">Chinese massage</a></li>
-                    <li class="item"> <a href="#">Massage for massage</a></li>
-                    <li class="item"> <a href="#">Thai massage</a></li>
-                </ul>
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="footer">
-        <div class="container">
-            <div class="row top-footer">
-                <div class="col-md-4">
-                    <h6 class="footer-title">About Us</h6>
-                    <ul class="footer-links">
-                        <li class="item"><a href="#">About Gumtree</a></li>
-                        <li class="item"><a href="#">Advertise With Us</a></li>
-                        <li class="item"><a href="#">Careers</a></li>
-                        <li class="item"><a href="#">Media</a></li>
-                        <li class="item"><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h6 class="footer-title">Help & Contact</h6>
-                    <ul class="footer-links">
-                        <li class="item"><a href="#">FAQs</a></li>
-                        <li class="item"><a href="#">Safety</a></li>
-                        <li class="item"><a href="#">Policies</a></li>
-                        <li class="item"><a href="#">Contact Us</a></li>
-                        <li class="item"><a href="#">Insurance</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h6 class="footer-title">More From Us</h6>
-                    <ul class="footer-links">
-                        <li class="item"><a href="#">Car Guides</a></li>
-                        <li class="item"><a href="#">Gumtree Life</a></li>
-                        <li class="item"><a href="#">Car Price Index</a></li>
-                        <li class="item"><a href="#">Sell My Car</a></li>
-                        <li class="item"><a href="#">Upcycle Revolution</a></li>
-                        <li class="item"><a href="#">Popular Searches</a></li>
-                    </ul>
                 </div>
 
-            </div>
-            <div class="row copyright">
-                <p class="copyright">© Copyright 2022 esukk.com. All rights reserved.</p>
-                <ul class="btm-footer-links">
-                    <li><a href="#">Terms of Use, </a></li>
-                    <li><a href="#">Privacy Notice,</a></li>
-                    <li><a href="#">Privacy Settings, </a></li>
-                    <li><a href="#">Modern Slavery Statement &
-                    <li><a href="#">Cookies Policy</li></a>
-                </ul>
-            </div>
+
+
+                <!-- HOLIDAY RENTAL -->
+                <div class="dynamic-post-ad cat-holiday" style="display: none;">
+                    <div class="rent">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_title">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Property Type</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Property Type </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_prop_type">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Number of Bedroom</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Number of Bedroom </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_bedroom">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="holiday_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Rent</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="holiday_price">
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Monthly / Weekly</h3>
+                            <div class="form-group fix-w-l">
+                                <select name="holiday_rent_time" id="" name="holiday_monthly_weekly">
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name=holiday_rental_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name=holiday_rental_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name=holiday_rental_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name=holiday_rental_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="youtube-link">
+                            <h3>Add a YouTube video link:</h3>
+                            <div class="link-box"><img src="Image/youtube-icon.png">
+                                <div class="form-group fix-w-l">
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_youtube">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Email</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Email id</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="email" name="holiday_email">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Phone</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your Phone No</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_phone">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">City</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your city</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_city">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Country</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter your country</label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="holiday_country">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!-- VEHICLES -->
+                <div class="dynamic-post-ad cat-cars" style="display: none;">
+                    <div class="sale">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_title">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Vehicle Registration Number</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Vehicle Registration Number </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_reg_no">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Make</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Make </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_make">
+                            </div>
+                        </div>
+                        <div class="content-box">
+                            <h3 class="sec-title">Model</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Model </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_model">
+                            </div>
+                        </div>
+                        <div class="content-box">
+                            <h3 class="sec-title">Milage</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Milage </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_milage">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="vehicles_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Price you want</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="vehicles_price">
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="cars_vehicles_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="cars_vehicles_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="cars_vehicles_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="cars_vehicles_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+
+                            <div class="youtube-link">
+                                <h3>Add a YouTube video link:</h3>
+                                <div class="link-box"><img src="Image/youtube-icon.png">
+                                    <div class="form-group fix-w-l">
+                                        <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_youtube">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Email</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Email id</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="email" name="vehicles_email">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Phone</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Phone No</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_phone">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">City</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your city</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_city">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Country</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your country</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="vehicles_country">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <!-- PARTS -->
+                <div class="dynamic-post-ad cat-parts" style="display: none;">
+                    <div class="sale">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_title">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Parts for Vehicle</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Parts For Vehicle </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_for_vehicle">
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <h3 class="sec-title">Parts Name</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Parts Name </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_name">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="parts_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Price you want</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="parts_price">
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="parts_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="parts_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="parts_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="parts_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+
+                            <div class="youtube-link">
+                                <h3>Add a YouTube video link:</h3>
+                                <div class="link-box"><img src="Image/youtube-icon.png">
+                                    <div class="form-group fix-w-l">
+                                        <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_youtube">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Email</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Email id</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="email" name="parts_email">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Phone</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Phone No</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_phone">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">City</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your city</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_city">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Country</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your country</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="parts_country">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!-- CLOTHES & FOOTWARE -->
+                <div class="dynamic-post-ad cat-fashion" style="display: none;">
+                    <div class="sale">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="clothes_title">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="clothes_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Price you want</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="clothes_price">
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="clothes_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="clothes_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="clothes_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="clothes_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+
+                            <div class="youtube-link">
+                                <h3>Add a YouTube video link:</h3>
+                                <div class="link-box"><img src="Image/youtube-icon.png">
+                                    <div class="form-group fix-w-l">
+                                        <input class="form-control contactint" placeholder="" id="posting" type="text" name="clothes_youtube">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Email</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Email id</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="email" name="clothes_email">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Phone</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Phone No</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="clothes_phone">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">City</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your city</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="clothes_city">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Country</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your country</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="clothes_country">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- ELECTRICAL & ELECTRONICS -->
+                <div class="dynamic-post-ad cat-clectronics" style="display: none;">
+                    <div class="sale">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="electronics_electrical_title">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="electronics_electrical_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Price you want</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Price: </label>
+                                <input class="form-control contactint" placeholder="£" id="posting" type="text" name="electronics_electrical_price">
+                            </div>
+                        </div>
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="electronics_electrical_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="electronics_electrical_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="electronics_electrical_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="electronics_electrical_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+
+                            <div class="youtube-link">
+                                <h3>Add a YouTube video link:</h3>
+                                <div class="link-box"><img src="Image/youtube-icon.png">
+                                    <div class="form-group fix-w-l">
+                                        <input class="form-control contactint" placeholder="" id="posting" type="text" name="electronics_electrical_youtube">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Email</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Email id</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="email" name="electronics_electrical_email">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Phone</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Phone No</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="electronics_electrical_phone">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">City</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your city</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="electronics_electrical_city">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Country</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your country</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="electronics_electrical_country">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- SERVICE     -->
+                <div class="dynamic-post-ad cat-service" style="display: none;">
+                    <div class="sale">
+                    <div class="content-box">
+                            <h3 class="sec-title">Ad Title</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter Title </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="services_title">
+                            </div>
+                        </div>
+
+                        <div class="description content-box">
+                            <h3 class="sec-title">Description</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Enter product description</label>
+                                <textarea class="form-control" rows="5" id="comment" name="services_description"></textarea>
+                                <p>10000 characters remaining (12 words minimum).</p>
+                                <p>Enter as much information possible; ads with detailed and longer descriptions get more views and replies!</p>
+                            </div>
+                        </div>
+
+                        <div class="price content-box">
+                            <h3 class="sec-title">Website Link</h3>
+                            <div class="form-group fix-w-l">
+                                <label for="posting">Website Link </label>
+                                <input class="form-control contactint" placeholder="" id="posting" type="text" name="services_website">
+                            </div>
+                        </div>
+                        <!-- <div class="price content-box">
+                                <h3 class="sec-title">Price you want</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Price: </label>
+                                    <input class="form-control contactint" placeholder="£" id="posting" type="text" name="services_price">
+                                </div>
+                            </div> -->
+
+                        <div class="images content-box">
+                            <h3 class="sec-title">Images</h3>
+                            <div class="upload-image">
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="services_image1">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="services_image2">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="services_image3">
+                                    </label>
+                                </div>
+                                <div class="imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" name="services_image4">
+                                    </label>
+                                </div>
+                                <div class="section-text">
+                                    <p>Upload as many clear images as possible; this will get your ad more views and replies!</p>
+                                </div>
+
+                            </div>
+
+                            <div class="youtube-link">
+                                <h3>Add a YouTube video link:</h3>
+                                <div class="link-box"><img src="Image/youtube-icon.png">
+                                    <div class="form-group fix-w-l">
+                                        <input class="form-control contactint" placeholder="" id="posting" type="text" name="services_youtube">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Email</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Email id</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="email" name="services_email">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Phone</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your Phone No</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="services_phone">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">City</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your city</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="services_city">
+                                </div>
+                            </div>
+
+                            <div class="content-box">
+                                <h3 class="sec-title">Country</h3>
+                                <div class="form-group fix-w-l">
+                                    <label for="posting">Enter your country</label>
+                                    <input class="form-control contactint" placeholder="" id="posting" type="text" name="services_country">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="submit-btn"><button type="submit" class="btn btn-primary">Submit your product</button></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </form>
 
         </div>
-    </section>
+    </div>
+</section>
 
-</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="http://basabdash.in/esukk/demo/dynamic_post_ad.js"></script>
 
 
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/bootstrap.js" type="text/javascript"></script>
-<script src="js/owl.carousel.js" type="text/javascript"></script>
-<script src="js/aos.js" type="text/javascript"></script>
-<script src="js/custom.js" type="text/javascript"></script>
 
-</html>
+<?php include("db/footer.php"); ?>

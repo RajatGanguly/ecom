@@ -4,12 +4,39 @@
         $f_name = $_POST["f_name"];
         $l_name = $_POST["l_name"];
         $email = $_POST["email"];
-        $phone = $_POST["phone"];
+        // $phone = $_POST["phone"];
         $password = $_POST["password"];
-        $sql = "INSERT INTO `users`(`fname`, `lname`, `email`, `password`, `phone`) VALUES ('$f_name','$l_name','$email','$phone','$password')";
-        $result = mysqli_query($conn, $sql);
+
+        $exists_sql="SELECT * FROM `users` WHERE email='$email'";
+        $result=mysqli_query($conn, $exists_sql);
+        $numExistRows=mysqli_num_rows($result);
+        if($numExistRows>0){
+            $showerror='Email already exists...';
+            echo $showerror;
+            // $exists=true;
+        }
+        else{
+            // $exists=false;
+            
+
+            // if(($password==$password)){
+                $hash=password_hash($password, PASSWORD_DEFAULT);
+                echo $hash;
+                $sql = "INSERT INTO `users`(`fname`, `lname`, `email`, `password`) VALUES ('$f_name','$l_name','$email','$hash')";
+                $result = mysqli_query($conn, $sql);
+
+                if($result){
+                    $err=false; 
+                }
+
+            // }
+            // else{
+                $showerror='Password is not matching...';
+            // }
+        }
+
         if ($result){
-            header("Location: ./");
+            // header("Location: ./");
         }
 
     }
@@ -59,7 +86,7 @@
         </main>
         <div class="welcome-container">
             <h1 class="heading-secondary">Welcome to <span class="lg"></span></h1>
-            <a href="./"><img src="./Image/logo.svg" alt=""></a>
+            <a href="./"><img src="./Image/logo.png" alt=""></a>
         </div>
     </div>
 </body>

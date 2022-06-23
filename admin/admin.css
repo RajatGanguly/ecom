@@ -404,6 +404,16 @@ body {
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
 }
+.btn{
+  background-color: #ff0101;
+  border: 1px solid red;
+  padding: 8px;
+  border-radius: 16%;
+}
+a{
+  color: #fff;
+  text-decoration: none;
+}
 
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {

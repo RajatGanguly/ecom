@@ -20,19 +20,32 @@ html{overflow-x: hidden;}
 
 #header {background: #fff; padding: 10px 0 0px; border-bottom: 1px solid #e7e7e7; }
 
-.header .logo img {width: 100%; padding-top: 5px;}
+::placeholder {
+  color: #222529!important;
+  opacity: 1; /* Firefox */
+}
 
-.header .header-search {position: relative; border: 2px solid #3c3241; display: inline-block; width: 100%; border-radius: 30px;}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #222529!important;
+}
 
-.header .form-control.mr-sm-2 {border: none; padding: 10px 20px; color: #666; width: 60%; border-radius: 30px 0px 0px 30px; float: left; height: 50px; font-size:14px; background: #f9f9f9;}
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: #222529!important;
+}
+
+.header .logo img {width: 73%; padding: 15px 0px;}
+
+.header .header-search {position: relative; border: 1px solid #ffffff; display: inline-block; width: 100%; border-radius: 30px; padding: 15px 0px;}
+
+.header .form-control.mr-sm-2 {border: none; padding: 10px 20px; color: #8d8d8d; width: 100%; border-radius: 30px; float: left; height: 50px; font-size:14px; background: #f4f4f4;}
 
 .header .form-control.mr-sm-2.location {width: 40%; border-radius: 0 30px 30px 0; border-left: 1px solid #eee;}
 
-.header .header-search .btn.btn-secondary {position: absolute; right: 0; top: 0; background: #3c3241; border: none; border-radius: 50px; padding: 10px 15px; width: 50px;height: 50px;}
+.header .header-search .btn.btn-secondary {position: absolute; right: 5px; top: 17px; background: #5e6d18; border: none; border-radius: 50px; padding: 10px 15px; width: 45px;height: 45px;}
 
 
 
-.header-right {padding: 5px 0 0 0;}
+.header-right {padding: 16px 0 0 0;}
 
 .header-right .post-ad {text-align: center; float: left;}
 
@@ -96,7 +109,7 @@ transition: all 0.5s ease;}
 
 @media only screen and (min-width:769px){
 
-.header-menu {margin-top: 5px; }
+.header-menu {margin-top: 0px; }
 
 .header-menu .navbar-toggler {display: none;}
 
@@ -108,9 +121,9 @@ transition: all 0.5s ease;}
 
 .header-menu #Navbar-menu .navbar-nav { display: inline-block; width: 100%;}
 
-.header-menu #Navbar-menu .navbar-nav .nav-item a.nav-link{ color:#ffffff; font-size:12px; padding: 20px 0 20px 0; font-weight: 700; line-height: 16px; letter-spacing: -.12px; text-transform: uppercase;}
+.header-menu #Navbar-menu .navbar-nav .nav-item a.nav-link{ color:#0b304b; font-size:12px; padding: 20px 0 20px 0; font-weight: 700; line-height: 16px; letter-spacing: -.12px; text-transform: uppercase;}
 
-	.header-menu #Navbar-menu .navbar-nav .nav-item a.nav-link:hover{ color:#2caded;}
+	.header-menu #Navbar-menu .navbar-nav .nav-item a.nav-link:hover{ color:#74890c;}
 
 .header-menu #Navbar-menu .navbar-nav .nav-item:last-child a { border: none !important;}
 
@@ -166,7 +179,8 @@ transition: all 0.5s ease;}
 
 .menubg{
 
-	background-color: #0088cc;
+	background-color: #ffffff;
+	border-top: 1px solid #e7e7e7;
 
 }
 
@@ -230,25 +244,36 @@ transition: all 0.5s ease;}
 
 .categories-featured .inner-content:hover {box-shadow: 1px 1px 20px #bbb; background-color: #ffffff;}
 
+.allpro{ padding: 3%;}
 
+.catic{background: #cccccc; padding: 30px 0;}
 
 .products{background: #ffffff; padding: 50px 0;}
 
 .product-boxes {margin-top: 30px;}
 
-.product-boxes .inner-content {background: #fff; border-radius: 10px;}
+.product-boxes .inner-content {background: #fff; border-radius: 15px; border: 1px solid #e7e7e7; padding: 8px; min-height: 307px;}
 
-.product-boxes .inner-content .product-image img {width: 100%; border-radius: 10px 10px 0 0; height: 170px;}
+.product-boxes .inner-content .product-image img {width: 100%; border-radius: 15px; height: 170px;}
 
 .product-boxes .inner-content .pro-details-box {padding: 20px; position: relative; display: inline-block;}
 
-.product-boxes .inner-content .pro-details-box .product-name {color: #3c3241; float: left; padding: 0 0 5px 0; transition:all 0.5s ease;}
+.product-boxes .inner-content .pro-details-box .product-name {color: #0b304b; float: left; padding: 0 0 5px 0; transition:all 0.5s ease; font-weight: 600;}
 
 .product-boxes .inner-content .pro-details-box .product-name:hover{ color:#52a744;}
 
+
+.product-boxes .cat-content {background: #fff; border-radius: 15px; border: 1px solid #e7e7e7; padding: 8px; margin-bottom: 20px;}
+
+.product-boxes .cat-content .cat-image img {width: 100%; border-radius: 15px; height: 170px; object-fit: cover; object-position: 100% 0;}
+
+.product-boxes .cat-content .cat-details-box {padding: 7px; position: relative; display: block; width: 100%;}
+
+.product-boxes .cat-content .cat-details-box .cat-name {color: #0b304b; font-size: 12px;  padding: 0 0 5px 0; transition:all 0.5s ease; font-weight: 700; text-align: center; text-transform: uppercase; display: block; width: 100%;}
+
 .product-boxes .inner-content .pro-details-box .des {float: left; font-size: 13px; padding: 0 0 5px 0; color: #635b67;}
 
-.product-boxes .inner-content .pro-details-box .price {float: left; width: 100%; color: #52a744; font-weight: 500; font-size: 17px; padding-bottom: 10px;}
+.product-boxes .inner-content .pro-details-box .price {float: left; width: 100%; color: #b6b6b6; font-weight: 500; font-size: 11px; padding-bottom: 10px; letter-spacing: 1px; }
 
 .product-boxes .inner-content .pro-details-box .location {margin-bottom: 5px;}
 
@@ -256,11 +281,9 @@ transition: all 0.5s ease;}
 
 .product-boxes .inner-content .pro-details-box .location .fa, .product-boxes .inner-content .pro-details-box .time .fa  {font-size: 16px; color: #635b67; padding-right: 8px;}
 
-.product-boxes .inner-content .pro-details-box .favorited {position: absolute; background: #fff; width: 50px; height: 50px; text-align: center; border-radius: 50px;
+.product-boxes .inner-content .pro-details-box .favorited {position: absolute; background: #e52815; width: 50px; height: 50px; text-align: center; border-radius: 15px 0px 15px 0px; right: -1px; top: -50px; z-index: 333; box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); line-height: 50px;}
 
-right: 10px; top: -30px; z-index: 333; box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); line-height: 50px;}
-
-.product-boxes .inner-content .pro-details-box .favorited .fa{ color:#e52815;}
+.product-boxes .inner-content .pro-details-box .favorited .fa{ color:#ffffff;}
 
 
 
